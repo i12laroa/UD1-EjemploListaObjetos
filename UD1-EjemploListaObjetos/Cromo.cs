@@ -8,9 +8,18 @@ namespace UD1_EjemploListaObjetos
 {
     internal class Cromo
     {
-        public enum categoriaCromo { Bronce, Plata,Oro};
+        public enum CategoriaCromo { Bronce, Plata,Oro};
         public int CodigoCromo {  get; set; }
         public string NombreCromo { get; set; }
-        public categoriaCromo Categorias { get; set; }
+        public CategoriaCromo Categorias { get; set; }
+
+        public Cromo (int codigoCromo, string nombreCromo, CategoriaCromo categorias)
+        {
+            CodigoCromo = codigoCromo;
+            NombreCromo = nombreCromo;
+            Categorias = categorias;
+        }
+
+        public Cromo() { }
     }
 }

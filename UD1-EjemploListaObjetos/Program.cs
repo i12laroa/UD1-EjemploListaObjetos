@@ -8,36 +8,50 @@ namespace UD1_EjemploListaObjetos
 {
     internal class Program
     {
+        static List<Cromo> listaCromos = new List<Cromo>();
+
         static void Main(string[] args)
         {
-            List<Cromo> listaCromos = new List<Cromo>();
 
-            Cromo cromo1 = new Cromo();
-            cromo1.CodigoCromo = 1;
-            cromo1.NombreCromo = "Pokemon1";
-            cromo1.Categorias = Cromo.categoriaCromo.Oro;
+            Cromo cromo1 = new Cromo(1, "Pokemon1", Cromo.CategoriaCromo.Plata);
+            //cromo1.CodigoCromo = 1;
+            //cromo1.NombreCromo = "Pokemon1";
+            //cromo1.Categorias = Cromo.CategoriaCromo.Oro;
 
             listaCromos.Add(cromo1);
 
             Cromo cromo2 = new Cromo();
             cromo2.CodigoCromo = 2;
             cromo2.NombreCromo = "Aqua5";
-            cromo2.Categorias = Cromo.categoriaCromo.Plata;
+            cromo2.Categorias = Cromo.CategoriaCromo.Plata;
 
             listaCromos.Add(cromo2);
 
-            foreach(Cromo cromo in listaCromos)
-            {
-                Console.WriteLine("Código del cromo: " +cromo.CodigoCromo+ " Nombre: "+cromo.NombreCromo);
-            }
+            Console.ForegroundColor = ConsoleColor.Red;
+
+            Console.WriteLine("LISTA DE CROMOS INICIAL");
+
+            RecorrerListaCromos();
 
             listaCromos.Remove(cromo2);
 
+            Console.ForegroundColor = ConsoleColor.Blue;
+
+            Console.WriteLine("LISTA DE CROMOS FINAL");
+
+            RecorrerListaCromos();
+
+            Console.ResetColor();
+
+            
+        }
+
+        static private void RecorrerListaCromos()
+        {
             foreach (Cromo cromo in listaCromos)
             {
                 Console.WriteLine("Código del cromo: " + cromo.CodigoCromo + " Nombre: " + cromo.NombreCromo);
             }
-
         }
     }
 }
