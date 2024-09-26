@@ -12,6 +12,12 @@ namespace UD1_EjemploListaObjetos
 
         static void Main(string[] args)
         {
+            List<Cromo> listaAuxiliar = new List<Cromo>()
+            {
+                  new Cromo(20, "Cromo20", Cromo.CategoriaCromo.Plata),
+                  new Cromo(30, "Cromo30", Cromo.CategoriaCromo.Plata)
+            }; 
+
 
             Cromo cromo1 = new Cromo(1, "Pokemon1", Cromo.CategoriaCromo.Plata);
             //cromo1.CodigoCromo = 1;
@@ -34,6 +40,12 @@ namespace UD1_EjemploListaObjetos
             RecorrerListaCromos();
 
             listaCromos.Remove(cromo2);
+           
+            listaCromos.AddRange(listaAuxiliar);
+
+            bool existeCromo = listaCromos.Contains(cromo1);
+
+            Console.WriteLine(existeCromo);
 
             Console.ForegroundColor = ConsoleColor.Blue;
 
@@ -41,9 +53,7 @@ namespace UD1_EjemploListaObjetos
 
             RecorrerListaCromos();
 
-            Console.ResetColor();
-
-            
+            Console.ResetColor(); 
         }
 
         static private void RecorrerListaCromos()
